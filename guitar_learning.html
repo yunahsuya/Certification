@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>吉他社教學內容</title>
+
+    <style>
+      body {
+        background: url("./images/0101.jpg");
+      }
+      /*  */
+      .a {
+        font-family: "標楷體";
+        font-size: 18px;
+        color: #00ffff;
+        text-align: center;
+      }
+
+      table {
+        text-align: center;
+        width: 100%;
+      }
+
+      #b {
+        width: 400px;
+        margin: auto;
+      }
+
+      #b a {
+        display: block;
+        line-height: 40px;
+      }
+
+      /* (＊)8.表格下方匯入檔案「0103.txt」內含之文字，並將各文字所述之教學項目製
+               作成文字按鈕，按鈕間需有空白分隔，且滑鼠移入時以動態效果呈現。  
+      */
+      #b a:hover {
+        color: #fff;
+        background: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="a">吉他社教學內容</p>
+
+    <!-- 先建立一列四欄 (再刪掉不要的) -->
+    <table>
+      <tr>
+        <!-- 30頁、十、2-7 -->
+        <!-- _top (回首頁 -> 開新的分頁)，從頁框回到頂層，要把整個框架打掉 -->
+        <!-- 回首頁 -->
+        <!-- width="1" => 讓每個欄位寬度一致 -->
+        <td width="1">
+          <a href="./index.html" target="_top">回社團介紹首頁</a>
+        </td>
+        <td width="1">
+          <a href="./guitar_history.html">吉他社社史</a>
+        </td>
+        <td width="1">
+          <a href="./guitar_event.html" target="iframe">吉他社近期活動公告</a>
+        </td>
+      </tr>
+    </table>
+
+    <br />
+    <br />
+
+    <table id="b">
+      <tr>
+        <td><a href="#">基礎樂理</a></td>
+      </tr>
+      <tr>
+        <td><a href="#">常用之吉他技巧</a></td>
+      </tr>
+      <tr>
+        <td><a href="#">音程介紹以及音程表內容</a></td>
+      </tr>
+      <tr>
+        <td><a href="#">節奏型態</a></td>
+      </tr>
+      <tr>
+        <td><a href="#">和絃及級數和絃</a></td>
+      </tr>
+      <tr>
+        <td><a href="#">和絃公式</a></td>
+      </tr>
+      <tr>
+        <td><a href="#">轉位複合</a></td>
+      </tr>
+      <tr>
+        <td><a href="#">調音法</a></td>
+      </tr>
+      <tr>
+        <td><a href="#">吉他的保養</a></td>
+      </tr>
+      <tr>
+        <td><a href="#">如何轉調</a></td>
+      </tr>
+    </table>
+  </body>
+</html>

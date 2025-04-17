@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>國立科技高中─校園社團介紹網</title>
+
+    <style>
+      #main {
+        width: 1024px;
+        height: 768px;
+
+        /* 水平置中 */
+        margin: auto;
+
+        /* background: rgb(147, 59, 73); */
+      }
+
+      #top {
+        width: 1000px;
+        height: 65px;
+
+        /* 區塊 => 水平置中 */
+        margin: auto;
+
+        /* background: rgb(32, 32, 167); */
+      }
+
+      #left {
+        width: 215px;
+
+        /* 計算函式 */
+        /* 768 - 65(top) - 20(footer) = 683 */
+        height: calc(768px - 65px - 20px);
+
+        /* 浮動左側 */
+        float: left;
+
+        /* 區塊 => 左邊對齊 */
+        margin-left: 12px;
+
+        /* background: pink; */
+      }
+
+      #right {
+        width: 770px;
+
+        /* 768 - 65(top) - 20(footer) = 683 */
+        height: calc(768px - 65px - 20px);
+
+        /* 浮動右側 */
+        float: right;
+
+        margin-right: 12px;
+
+        /* background: yellow; */
+      }
+
+      #footer {
+        width: 1000px;
+        height: 20px;
+
+        /* 水平置中 */
+        margin: auto;
+
+        /* 清除浮動 */
+        /* 做水平置中 => 左右會浮動、下方會影響，所以要 clear: both; */
+        clear: both;
+
+        /* background: deeppink; */
+
+        /* 跟 update 一樣，所以可以直接複製 */
+        /* 說明在 31 頁 => (30頁、十一、2、3、4)   */
+        font-family: "標楷體";
+
+        font-size: 16px;
+
+        color: #000;
+
+        /* 字置中 */
+        text-align: center;
+      }
+
+      #menu {
+        width: 215px;
+
+        /* 768 - 65(top) - 25(update) - 20px(footer) = 683 */
+        height: calc(768px - 65px - 25px - 20px);
+
+        /* background: turquoise; */
+      }
+
+      /* 在25頁、五 */
+      /* （五）選單區需含下面的資訊：如下圖所示。
+              (＊)1.文字字型為標楷體。
+              (＊)2.文字的粗體樣式粗細程度
+              為500的文字。
+              (＊)3.「社團介紹」四個字，字
+              型大小 24px (x-large、
+              size=5)，加底線，置中。
+              (＊)4.文字顏色為#FF00FF。
+      */
+      /* menu 標題 */
+      #menu div {
+        font-family: "標楷體";
+
+        font-size: 24px;
+
+        color: #ff00ff;
+
+        font-weight: 500;
+
+        /* 加底線 */
+        text-decoration: underline;
+
+        text-align: center;
+
+        /* 用成黑色底線版本
+
+           - 下框線
+              border-bottom: 1px solid #000; 
+
+           - 線條長度 (寬度)
+             width: 120px;
+
+          -  margin: auto;
+        */
+      }
+
+      /* (＊)5.選單區文字顏色除「社團
+              (a)選單平常狀態
+              (b)滑鼠移到選單項目上方
+              介紹」四個字外，其餘為#000000，字型大小16px (medium、size=3)。
+      */
+      #menu td {
+        width: 215px;
+        height: 40px;
+
+        text-align: center;
+
+        font-family: "標楷體";
+
+        font-size: 16px;
+
+        color: #000;
+
+        background: url(./images/menu1.png) no-repeat center;
+      }
+
+      /* (＊)8.選單項目在滑鼠移到該項目上方時，該項目的背景圖片換成 menu2.png，
+               如上圖(b)中的棒球社選項。
+      */
+      #menu td:hover {
+        background: url(./images/menu2.png) no-repeat center;
+      }
+
+      /* 整個範圍都可以點 (原本只有連結可以點) */
+      #menu a {
+        /* 填滿整個父元素 => td */
+        display: block;
+
+        /* 跟 td 高度一樣 */
+        /* 如果沒有加上 line-height，連結下面不能點 */
+        line-height: 40px;
+      }
+
+      /* 更新 (update 跟 footer 一起做) */
+      #update {
+        width: 215px;
+        height: 25px;
+
+        /* background: rgb(39, 166, 39); */
+
+        font-family: "標楷體";
+
+        font-size: 16px;
+
+        color: black;
+
+        /* 字置中 */
+        text-align: center;
+      }
+
+      /* 標籤(跑馬燈廣告區) */
+      /* （四）跑馬燈廣告區需含下面的資訊：
+          (＊)1.跑馬燈廣告區高度29px、寬度770px。
+          (＊)2.文字字型為標楷體、大小24px (x-large、size=5)。
+          (＊)3.文字顏色為#0000FF。
+          (＊)4.以跑馬燈動態方式呈現文字「歡迎光臨校園社團介紹網，參觀後請支持社團活
+                動並熱烈參與」。（▲以每一字為扣分單位，扣分無上限）
+      */
+      marquee {
+        width: 770px;
+        height: 29px;
+
+        /* 消除 marquee 底部的空白 (不做不會扣分) (本來我就沒有?) */
+        /* 圖片下壓 */
+        vertical-align: middle;
+
+        /* (＊)2.文字字型為標楷體、大小24px (x-large、size=5)。
+          (＊)3.文字顏色為#0000FF。
+        */
+        font-family: "標楷體";
+
+        font-size: 24px;
+
+        color: #00f;
+      }
+
+      /* 網頁內容區 => content */
+      iframe {
+        width: 770px;
+
+        /* 768 - 65(top) - 20px(footer) = 683  (要算)*/
+        height: calc(768px - 65px - 29px - 20px);
+
+        /* 沒有框線 */
+        border: none;
+
+        /* background: rgb(243, 72, 15); */
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <div id="top">
+        <!-- （三）網站標題區需含下面的資訊： -->
+        <!-- (25頁、三、2) -->
+        <!-- 
+            - 回首頁
+            a href="./index.html"
+
+            - img
+            alt => 替代文字 (連結失效的時候出現)
+            title => 圖片標題 (滑鼠移上去 => 移上去會看到的文字) 
+        -->
+        <a href="./index.html"
+          ><img
+            src="./images/logo.png"
+            alt="國立科技高中校園社團介紹網"
+            title="國立科技高中校園社團介紹網"
+        /></a>
+      </div>
+
+      <!-- 左邊 -->
+      <div id="left">
+        <div id="menu">
+          <div>社團介紹</div>
+
+          <!-- table*tr*6>td*1 => 6 x 1 -->
+          <table>
+            <tr>
+              <!-- 將 ./guitar_history.html 內容丟到 iframe 框框裡面  -->
+              <!-- 對應到 => <iframe src="./main.html" name="iframe"></iframe> -->
+              <!-- 如果東西沒有出現東西 => 右鍵 => 重新載入頁框 -->
+              <td>
+                <a href="./guitar_history.html" target="iframe">吉他社</a>
+              </td>
+            </tr>
+            <tr>
+              <td>熱舞社</td>
+            </tr>
+            <tr>
+              <td>棒球社</td>
+            </tr>
+            <tr>
+              <td>羽球社</td>
+            </tr>
+            <tr>
+              <td>足球社</td>
+            </tr>
+            <tr>
+              <td>童軍社</td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- 更新 (26頁、六，也可以寫 2025/05/16) -->
+        <div id="update">最近更新日期：2025/04/14</div>
+      </div>
+
+      <!-- 右邊 -->
+      <div id="right">
+        <marquee
+          >歡迎光臨校園社團介紹網，參觀後請支持社團活動並熱烈參與</marquee
+        >
+        <!-- 設定預設頁面 => main.html (src) -->
+        <!-- 點 "吉他社" 頁面會更換 (25頁) => 要讓頁面可以連動? (對應 a連結 target 的值) -->
+        <iframe src="./main.html" name="iframe"></iframe>
+      </div>
+      <!-- (30頁、十一) -->
+      <div id="footer">網頁設計及維護：03許庭瑋</div>
+    </div>
+  </body>
+</html>
+
+<!-- 合成圖片 (26頁、七) 、圖片要求在 => (25頁、三、2) =>) => 開新檔案 -->
+
+<!-- 圖片處理  
+
+1. 匯入所有照片
+2. 檔案 => 開新檔案 => 
+
+
+
+-->
+
+<!-- 第一個合成圖 -->
+<!-- 第一張 =>  -->
+<!-- 第二張 (去背) => 點兩下(圖層，按確定就好) => 魔術棒工具(左邊、第四個) => ctrl+D(去除螞蟻線條 -> 不規則) => 影像(最上排) => 修剪 (透明像素) => 影像尺寸 => ctrl + A、CTRL+ C、CTRL + V => 移動工具  -->
+
+<!-- 檔案 => 儲存為網頁用 => 存成 PNG-24 -->
+
+<!-- 第二個合成圖 -->
+<!-- 校長 => 魔術棒 => 按住 shift，一直點，就可以選取到校長的邊緣 -->
+<!--  -->
